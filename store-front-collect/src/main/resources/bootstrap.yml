@@ -1,0 +1,8 @@
+server:
+  port: 3008 #端口
+spring:
+  application:
+    name: collect-service
+  cloud:
+    nacos:
+      server-addr: 120.26.68.16:8848

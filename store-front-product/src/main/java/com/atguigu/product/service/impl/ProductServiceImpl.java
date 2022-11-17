@@ -262,5 +262,26 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return r;
     }
 
+    /**
+     * 收藏服务 调用该接口 该接口根据多组商品id查询商品对象信息
+     *
+     * @param productIds 多组商品id
+     * @return 商品对象信息
+     */
+    @Override
+    public R getProductListByIds(List<Integer> productIds) {
+
+        log.info("传来的多组商品ids={}",productIds);
+        //构造条件
+        LambdaQueryWrapper<Product> productLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        productLambdaQueryWrapper.in(Product::getProductId,productIds);
+        //查询
+        List<Product> productList = productMapper.selectList(productLambdaQueryWrapper);
+        log.info("productList={}",productList);
+
+        //封装结果返回
+        return R.ok(productList);
+    }
+
 
 }

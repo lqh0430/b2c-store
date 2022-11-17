@@ -78,4 +78,11 @@ public interface ProductService extends IService<Product> {
      * @return 商品对象集合
      */
     R search(ProductSearchParam productSearchParam);
+
+    /**
+     * 收藏服务 调用该接口 该接口根据多组商品id查询商品对象信息
+     * @param productIds 多组商品id
+     * @return 商品对象信息
+     */
+    R getProductListByIds(List<Integer> productIds);
 }

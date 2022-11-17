@@ -104,10 +104,11 @@ public class ProductController {
 
     /**
      * 商品详情 根据商品id查询商品对象信息
+     * 禁用缓存!!!不然前端页面会直接查询该缓存
      * @param param 接收前端提交传来的商品id
      * @return 商品对象
      */
-    @Cacheable(value = "product",key = "#root.methodName",cacheManager = "cacheManagerDay")
+    //@Cacheable(value = "product",key = "#root.methodName",cacheManager = "cacheManagerDay")
     @PostMapping("/detail")
     public R detail(@RequestBody Map<String,Integer> param) {
         Integer productID = param.get("productID");
@@ -120,10 +121,11 @@ public class ProductController {
 
     /**
      * 商品图片详情 根据商品id查询商品图片对象信息
+     * 禁用缓存!!!不然前端页面会直接查询该缓存
      * @param param 接收前端提交传来的商品id
      * @return 商品图片对象集合
      */
-    @Cacheable(value = "picture",key = "#root.methodName",cacheManager = "cacheManagerDay")
+    //@Cacheable(value = "picture",key = "#root.methodName",cacheManager = "cacheManagerDay")
     @PostMapping("/pictures")
     public R pictures(@RequestBody Map<String,Integer> param) {
 
