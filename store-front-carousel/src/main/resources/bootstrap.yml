@@ -1,0 +1,9 @@
+server:
+  port: 3003 #端口
+
+spring:
+  application:
+    name: carousel-service #轮播图服务名称
+  cloud:
+    nacos:
+      server-addr: 120.26.68.16:8848 #配置nacos-server

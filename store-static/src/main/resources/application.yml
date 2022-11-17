@@ -1,0 +1,5 @@
+spring:
+  mvc:
+    static-path-pattern: /public/** #配置静态资源可以被访问
+  resources:
+    static-locations: classpath:/public/

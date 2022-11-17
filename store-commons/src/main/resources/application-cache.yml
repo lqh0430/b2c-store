@@ -1,0 +1,13 @@
+#缓存配置
+spring:
+  cache:
+    type: redis
+  redis:
+    host: 120.26.68.16
+    port: 6379
+    jedis: #设置redis连接池
+      pool:
+        max-wait: 2000ms
+        min-idle: 2
+        max-active: 8
+        max-idle: 10

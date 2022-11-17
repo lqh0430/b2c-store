@@ -1,0 +1,8 @@
+server:
+  port: 3002 #端口
+spring:
+  application:
+    name: static-service #静态资源服务名称
+  cloud:
+    nacos:
+      server-addr: 120.26.68.16:8848 #配置nacos-server
