@@ -4,6 +4,7 @@ import com.atguigu.carousel.service.CarouselService;
 import com.atguigu.pojo.Carousel;
 import com.atguigu.utils.R;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ public class CarouselController {
     private CarouselService carouselService;
 
 
+    @Cacheable(value = "list.carousel",key = "#root.methodName")
     @PostMapping("/list")
     public R list() {
 
