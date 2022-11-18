@@ -283,5 +283,21 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return R.ok(productList);
     }
 
+    /**
+     * 购物车服务 调用该接口 该接口根据多组商品id查询商品对象集合
+     *
+     * @param productIds 多组商品id
+     * @return 商品对象集合
+     */
+    @Override
+    public List<Product> cartList(List<Integer> productIds) {
+        //构造条件
+        LambdaQueryWrapper<Product> productLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        productLambdaQueryWrapper.in(Product::getProductId,productIds);
+
+        List<Product> productList = productMapper.selectList(productLambdaQueryWrapper);
+        return productList;
+    }
+
 
 }

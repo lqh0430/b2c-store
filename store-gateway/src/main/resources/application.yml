@@ -4,7 +4,7 @@ spring:
     gateway:
       routes:
         - id: user-service #用户服务
-          uri: lb://user-service
+          uri: lb://user-service #使用负载均衡,调用服务名,这是服务名
           predicates:
             - Path=/user/**  # 访问user路径转发用户服务
 
@@ -19,9 +19,9 @@ spring:
             - Path=/carousel/**
 
         - id: product-service #商品服务
-          uri: lb://product-service #使用负载均衡,调用服务名,这是服务名
+          uri: lb://product-service
           predicates:
-            - Path=/product/** # 访问product相关,转发到product服务
+            - Path=/product/** #
 
         - id: category-service #类别服务
           uri: lb://category-service
@@ -37,3 +37,8 @@ spring:
           uri: lb://collect-service
           predicates:
             - Path=/collect/**
+
+        - id: cart-service #购物车服务
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart/**

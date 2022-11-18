@@ -1,5 +1,6 @@
 package com.atguigu.clients;
 
+import com.atguigu.param.ProductIdParam;
 import com.atguigu.param.ProductIdsParam;
 import com.atguigu.pojo.Product;
 import com.atguigu.utils.R;
@@ -37,5 +38,20 @@ public interface ProductClient {
     @PostMapping("/product/collect/list")
     R getProductListByIds(@RequestBody @Validated ProductIdsParam productIdsParam);
 
+    /**
+     * 购物车服务调用, 根据商品id查询商品信息
+     * @param productIdParam 商品id
+     * @return 商品对象
+     */
+    @PostMapping("/product/cart/detail")
+    Product cDetail(@RequestBody ProductIdParam productIdParam);
+
+    /**
+     * 购物车服务调用,根据多组商品id查询商品信息
+     * @param productIdsParam 多组商品id
+     * @return 商品对象集合
+     */
+    @PostMapping("/product/cart/list")
+    List<Product> cartList(@RequestBody ProductIdsParam productIdsParam);
 
 }

@@ -1,0 +1,8 @@
+server:
+  port: 3009
+spring:
+  application:
+    name: cart-service
+  cloud:
+    nacos:
+      server-addr: 120.26.68.16:8848

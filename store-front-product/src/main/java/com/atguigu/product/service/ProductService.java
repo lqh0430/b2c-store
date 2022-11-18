@@ -1,9 +1,6 @@
 package com.atguigu.product.service;
 
-import com.atguigu.param.ProductHotParam;
-import com.atguigu.param.ProductParamInteger;
-import com.atguigu.param.ProductPromoParam;
-import com.atguigu.param.ProductSearchParam;
+import com.atguigu.param.*;
 import com.atguigu.pojo.Product;
 import com.atguigu.utils.R;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -82,7 +79,18 @@ public interface ProductService extends IService<Product> {
     /**
      * 收藏服务 调用该接口 该接口根据多组商品id查询商品对象信息
      * @param productIds 多组商品id
-     * @return 商品对象信息
+     * @return 商品对象集合
      */
     R getProductListByIds(List<Integer> productIds);
+
+
+    /**
+     * 购物车服务 调用该接口 该接口根据多组商品id查询商品对象集合
+     * @param productIds 多组商品id
+     * @return 商品对象集合
+     */
+    List<Product> cartList(List<Integer> productIds);
+
+
+
 }
